@@ -1,0 +1,77 @@
+{
+  "scan_summary": {
+    "total_findings": 8,
+    "critical": 3,
+    "high": 2,
+    "medium": 3,
+    "resources_scanned": {
+      "s3": [
+        "deeparmor-test1"
+      ],
+      "rds": [
+        "deeparmor-test-db"
+      ],
+      "sg": [
+        "deeparmor-test-sg (sg-037f136b3ab0eee4d)"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "Resource": "deeparmor-test1",
+      "Type": "S3 Bucket",
+      "Issue": "Publicly Accessible",
+      "Severity": "HIGH",
+      "Description": "Bucket does not have all public access blocks enabled"
+    },
+    {
+      "Resource": "deeparmor-test1",
+      "Type": "S3 Bucket",
+      "Issue": "Logging Disabled",
+      "Severity": "MEDIUM",
+      "Description": "Server access logging is not enabled"
+    },
+    {
+      "Resource": "deeparmor-test1",
+      "Type": "S3 Bucket",
+      "Issue": "Versioning Disabled",
+      "Severity": "MEDIUM",
+      "Description": "Bucket versioning is not enabled"
+    },
+    {
+      "Resource": "deeparmor-test-db",
+      "Type": "RDS Instance",
+      "Issue": "Publicly Accessible",
+      "Severity": "CRITICAL",
+      "Description": "RDS instance is publicly accessible from the internet"
+    },
+    {
+      "Resource": "deeparmor-test-db",
+      "Type": "RDS Instance",
+      "Issue": "No Delete Protection",
+      "Severity": "MEDIUM",
+      "Description": "Deletion protection is not enabled"
+    },
+    {
+      "Resource": "deeparmor-test-db",
+      "Type": "RDS Instance",
+      "Issue": "Backups Disabled",
+      "Severity": "HIGH",
+      "Description": "Automated backups are not enabled"
+    },
+    {
+      "Resource": "deeparmor-test-sg (sg-037f136b3ab0eee4d)",
+      "Type": "Security Group",
+      "Issue": "Unrestricted SSH Access",
+      "Severity": "CRITICAL",
+      "Description": "SSH port (22) is open to the internet (0.0.0.0/0)"
+    },
+    {
+      "Resource": "deeparmor-test-sg (sg-037f136b3ab0eee4d)",
+      "Type": "Security Group",
+      "Issue": "Unrestricted MongoDB Access",
+      "Severity": "CRITICAL",
+      "Description": "MongoDB port (27017) is open to the internet (0.0.0.0/0)"
+    }
+  ]
+}
