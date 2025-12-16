@@ -41,11 +41,15 @@ A Python-based security scanning tool for AWS environments that identifies poten
    aws configure
    ```
 
-2. Create a `.env` file in the project root with your configuration:
+2. Copy the example environment file and update it with your configuration:
+   ```bash
+   cp example.env .env
    ```
-   AWS_REGION=your-aws-region
-   # Add any other environment-specific variables here
-   ```
+   Then edit the `.env` file with your AWS credentials and desired settings.
+
+3. The `.env` file should never be committed to version control. It's already included in `.gitignore` for security.
+
+4. The `example.env` file contains all available configuration options with documentation.
 
 ## Usage
 
